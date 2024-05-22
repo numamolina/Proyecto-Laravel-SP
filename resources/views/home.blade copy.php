@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,23 +48,23 @@
         </li>
         <!-- User Session Info -->
         @auth
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-user"></i>
-              <span>{{ Auth::user()->name }}</span>
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-user"></i>
+            <span>{{ Auth::user()->name }}</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header">{{ Auth::user()->email }}</span>
+            <div class="dropdown-divider"></div>
+            <a href="{{ route('logout') }}" class="dropdown-item"
+              onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              <i class="fas fa-sign-out-alt mr-2"></i> Logout
             </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-item dropdown-header">{{ Auth::user()->email }}</span>
-              <div class="dropdown-divider"></div>
-              <a href="{{ route('logout') }}" class="dropdown-item"
-                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fas fa-sign-out-alt mr-2"></i> Logout
-              </a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            </div>
-          </li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+          </div>
+        </li>
         @endauth
       </ul>
     </nav>
@@ -73,7 +74,8 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
-        <img src="vendor/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="vendor/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+          class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
       </a>
 
@@ -206,52 +208,66 @@
       </div>
       <!-- /.content-header -->
 
-<!-- Main content -->
-<section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-       
-        <!-- /.row -->
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-             
-              <!-- /.card-header -->
-             
-              <!-- ./card-body -->
-            
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
+
+      <!-- /.content-------------------------------header -->
+      @section('content')
+      <div class="row">
+        <div class="col-lg-12">
+          @include('partials.card')
         </div>
-        <!-- /.row -->
+      </div>
+      @endsection
+      <!-- /.content-------------------------------header -->
 
-        <!-- Main row -->
-       
-        <!-- /.row -->
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Info boxes -->
+
+          <!-- /.row -->
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+
+                <!-- /.card-header -->
+
+                <!-- ./card-body -->
+
+                <!-- /.card-footer -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+          <!-- Main row -->
+
+          <!-- /.row -->
+        </div><!--/. container-fluid -->
+      </section>
+      <!-- /.content -->
     </div>
-  </footer>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
   </div>
   <!-- ./wrapper -->
 
@@ -281,4 +297,5 @@
 
 
 </body>
+
 </html>

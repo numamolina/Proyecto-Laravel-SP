@@ -27,13 +27,26 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group([
     'middleware' => 'auth',
-    'prefix'     => 'user',
-], function() {
+    'prefix' => 'user',
+], function () {
     Route::get('create', [App\Http\Controllers\UserController::class, 'create'])->name('user.create');
-    Route::get('list', [App\Http\Controllers\UserController::class, 'index'])->name('user.index'); 
-    Route::post('search', [App\Http\Controllers\UserController::class, 'searchUser'])->name('user.search');   
-    Route::get('{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit'); 
-    Route::post('store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store'); 
-    Route::put('{user}/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update'); 
+    Route::get('list', [App\Http\Controllers\UserController::class, 'index'])->name('user.index');
+    Route::post('search', [App\Http\Controllers\UserController::class, 'searchUser'])->name('user.search');
+    Route::get('{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+    Route::post('store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+    Route::put('{user}/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
 
 });
+
+
+Route::get('/listar-obra-social', function () {
+    return view('listar-obra-social');
+})->name('listar-obra-social');
+
+Route::get('/editar-obra-social', function () {
+    return view('editar-obra-social');
+})->name('editar-obra-social');
+
+Route::get('/user/crear-obra-social', function () {
+    return view('crear-obra-social');
+})->name('crear-obra-social');

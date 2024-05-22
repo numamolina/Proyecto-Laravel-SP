@@ -20,7 +20,8 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post" action="{{ route('user.store') }}" onsubmit="return validateForm();" enctype="multipart/form-data" autocomplete="off">
+                    {{-- <form method="post" action="{{ route('user.store') }}" onsubmit="return validateForm();" enctype="multipart/form-data" autocomplete="off"> --}}
+                        <form method="post" action="{{ route('user.store') }}" onsubmit="return validateForm();" enctype="multipart/form-data" autocomplete="off">
                         @csrf
                        @include('user.partials.form')
                     </form>

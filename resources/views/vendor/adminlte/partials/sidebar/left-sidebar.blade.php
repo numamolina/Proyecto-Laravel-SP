@@ -35,25 +35,39 @@
                     </a>
                 </li>
             
-                <li class="nav-header">OBRA SOCIAL</li>
+                <li class="nav-header">OBRAS SOCIALES</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Crear Obra Social</p>
+                    <a href="{{ route('crear-obra-social') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
+                        <p>Crear Obra Social</p>
                     </a>
                 </li>
+
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-circle text-warning"></i>
+                    <a href="{{ route('editar-obra-social') }}" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
                         <p>Editar Obra Social</p>
                     </a>
-                </li>
+                </li> 
+                
+                
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('listar-obra-social') }}" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
                         <p>Listar Obra Social</p>
                     </a>
                 </li>
+
+                {{-- <li class="nav-item">
+                    <a href="{{ route('user.create') }}" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>Crear Usuario</p>
+                    </a>
+                </li> --}}
+
+
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Models;
+namespace App\Models;
+
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\UserData;
@@ -19,8 +23,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'name',
+        'username',
+        'email',
+        'password',
+
+
+
+
     ];
+
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -28,7 +46,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -36,7 +55,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
@@ -46,9 +65,13 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    
+
     public function userdata()
     {
-        return $this->hasOne(UserData::class, 'user_id', 'id');   
+        return $this->hasOne(UserData::class, 'user_id', 'id');
     }
+
+    // app/Models/User.php
+
+
 }
